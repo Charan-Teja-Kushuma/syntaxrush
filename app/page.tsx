@@ -21,10 +21,55 @@ const TypingPractice: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const practiceTexts = [
-    'const hello = () => console.log("Hello World");',
-    'function add(a: number, b: number): number { return a + b; }',
-    'import React from "react";',
-    'const [state, setState] = useState<string>();'
+    `// Function with type annotations
+function add(a: number, b: number): number {
+    return a + b;
+}
+
+// Testing the function
+const result = add(5, 3);`,
+
+    `// React functional component
+interface UserProps {
+    name: string;
+    age: number;
+}
+
+const UserProfile: React.FC<UserProps> = ({ name, age }) => {
+    return (
+        <div className="profile">
+            <h2>{name}</h2>
+            <p>Age: {age}</p>
+        </div>
+    );
+};`,
+
+    `// Async/await pattern
+async function fetchUserData() {
+    try {
+        const response = await fetch('/api/user');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+        return null;
+    }
+}`,
+
+    `// Class with TypeScript
+class TodoItem {
+    private id: string;
+    private completed: boolean;
+
+    constructor(public title: string) {
+        this.id = Math.random().toString(36);
+        this.completed = false;
+    }
+
+    toggle(): void {
+        this.completed = !this.completed;
+    }
+}`
   ];
 
   const generateText = useCallback(() => {
@@ -149,7 +194,20 @@ const TypingPractice: React.FC = () => {
         </button>
       )}
     </div>
-  );
+  );  // React functional component
+  interface UserProps {
+    name: string;
+    age: number;
+  }
+  
+  const UserProfile: React.FC<UserProps> = ({ name, age }) => {
+    return (
+      <div className="profile">
+        <h2>{name}</h2>
+        <p>Age: {age}</p>
+      </div>
+    );
+  };
 };
 
 export default TypingPractice;

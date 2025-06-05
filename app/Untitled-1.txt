@@ -1,0 +1,14 @@
+// Function example is clearly formatted:
+function add(a: number, b: number): number {
+    return a + b;  // 4 spaces indentation
+}
+
+// Component example shows proper nesting:
+const UserProfile: React.FC<UserProps> = ({ name, age }) => {
+    return (
+        <div className="profile">
+            <h2>{name}</h2>      // Nested elements are indented
+            <p>Age: {age}</p>    // Consistent spacing
+        </div>
+    );
+};
