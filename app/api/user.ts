@@ -1,0 +1,1 @@
+async function fetchUserData() { try { const response = await fetch('/api/user'); const data = await response.json(); return data; } catch (error) { console.error('Error:', error); return null; } }
